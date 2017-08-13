@@ -1,0 +1,51 @@
+﻿@{
+    Layout = null;
+}
+<i class="fa fa-times closebtb" ng-click="cancel()"></i>
+<div ng-show="loaderDesc.loading" class="winload">
+    <i class="fa fa-spinner fa-spin fa-3"></i>
+</div>
+        <div class="table-responsive" ng-show="!loaderDesc.loading">
+            <div class="modal-header">
+                <h3 class="modal-title">Детализация : {{id}}</h3>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <td><strong>ORDERID</strong></td>
+                            <td>{{ORDERID}}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>PURCHASEAMT</strong></td>
+                            <td>{{PURCHASEAMT}}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>ACCOUNT</strong></td>
+                            <td>{{ACCOUNT}}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>RESULT</strong></td>
+                            <td>{{RESULT}}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>RESULTDESC</strong></td>
+                            <td>{{RESULTDESC}}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>DATETIME</strong></td>
+                            <td>{{DATETIME}}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>RRN</strong></td>
+                            <td>{{RRN}}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>DEALID</strong></td>
+                            <td>{{DEALID}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+

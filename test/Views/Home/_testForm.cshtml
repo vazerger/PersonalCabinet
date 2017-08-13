@@ -1,0 +1,54 @@
+﻿<link rel="stylesheet" href="@Url.Content("~/css/font-awesome-4.5.0/css/font-awesome.css")" type="text/css" />
+
+
+<script src="~/angular/angular.min.js"></script>
+<script src="~/angular/angular-sanitize.min.js"></script>
+<script src="~/angular/datapicker/datapickerRU.js"></script>
+<script src="@Url.Content("~/Scripts/date.format.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/angular/dirPagination.js")" type="text/javascript"></script>
+<script src="~/Bootstrap/js/ui-bootstrap-tpls-0.14.3.js"></script>
+<script src="@Url.Content("~/angular/test/app.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/angular/test/form/FormController.js")" type="text/javascript"></script>
+
+
+<div class="col-md-12">
+
+    <form name="aleanForm">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="dt">Дата c</label>
+                            <p class="input-group datapicker">
+                                <input type="text" class="form-control" ng-click="openCalendar($event)" datepicker-popup="dd.MM.yyyy" ng-model="dt" is-open="opened"
+                                       close-text="Закрыть" show-weeks="false" show-button-bar="false" datepicker-options="dateOptions" ng-change="selDate(dt)" />
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default" ng-click="openCalendar($event)">
+                                        <i class="glyphicon glyphicon-calendar"></i>
+                                    </button>
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="dt">Дата по</label>
+                            <p class="input-group datapicker">
+                                <input type="text" class="form-control" ng-click="openCalendar1($event)" datepicker-popup="dd.MM.yyyy" ng-model="dt1" is-open="opened1"
+                                       close-text="Закрыть" show-weeks="false" show-button-bar="false" datepicker-options="dateOptions1" ng-change="selDate1(dt1)" />
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default" ng-click="openCalendar1($event)">
+                                        <i class="glyphicon glyphicon-calendar"></i>
+                                    </button>
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

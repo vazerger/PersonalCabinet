@@ -1,0 +1,37 @@
+﻿<html>
+<head>
+    <title>Test</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.14.3.js"></script>
+    <script src="/angular/datapicker/example.js"></script>
+    <script src="/angular/datapicker/datetimepicker.js"></script>
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Plugin files -->
+    <script src="https://cdn.rawgit.com/zhaber/datetimepicker/master/datetimepicker.js"></script>
+    <!-- link href="https://cdn.rawgit.com/zhaber/datetimepicker/master/datetimepicker.css" type="text/css" rel="stylesheet" -->
+    <script src="datapickerRU.js"></script>
+</head>
+
+<body>
+
+
+    <div ng-app="plunker" ng-controller="DateTimePickerDemoCtrl" class="container">
+        <br><form name="demo">
+            <pre>Selected time and date is: <em>{{date | date:'shortTime' }}, {{date | date:'fullDate' }}</em>
+Valid date: {{demo.$valid}}</pre>
+                <datetimepicker min-date="minDate" hour-step="hourStep"
+                                minute-step="minuteStep" ng-model="date" show-meridian="showMeridian"
+                                date-format="dd-MMM-yyyy" date-options="dateOptions"
+                                date-disabled="disabled(date, mode)"
+                                readonly-date="false"
+                                hidden-time="true"
+                                hidden-date="false"
+                                show-spinners="true"
+                                readonly-time="false" data-date-language="ru"></datetimepicker>
+        </form>
+
+    </div>
+
+
+</body>
+</html>

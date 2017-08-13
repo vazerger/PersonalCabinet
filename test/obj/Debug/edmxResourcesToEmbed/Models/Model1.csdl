@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Transactions" EntityType="Model.Transactions" />
+    <EntitySet Name="v_Transactions" EntityType="Model.v_Transactions" />
+    <EntitySet Name="v_GroupResult" EntityType="Model.v_GroupResult" />
+  </EntityContainer>
+  <EntityType Name="Transactions">
+    <Key>
+      <PropertyRef Name="ORDERID" />
+    </Key>
+    <Property Name="ORDERID" Type="Int32" Nullable="false" />
+    <Property Name="PURCHASEAMT" Type="Int32" />
+    <Property Name="ACCOUNT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RESULT" Type="Int32" />
+    <Property Name="RESULTDESC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DATETIME" Type="DateTime" Precision="3" />
+    <Property Name="RRN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DEALID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="USERID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="v_Transactions">
+    <Key>
+      <PropertyRef Name="ORDERID" />
+      <PropertyRef Name="UserName" />
+    </Key>
+    <Property Name="ACCOUNT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DATETIME" Type="DateTime" Precision="3" />
+    <Property Name="DEALID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ORDERID" Type="Int32" Nullable="false" />
+    <Property Name="PURCHASEAMT" Type="Int32" />
+    <Property Name="RESULT" Type="Int32" />
+    <Property Name="RESULTDESC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RRN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="USERID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="v_GroupResult">
+    <Key>
+      <PropertyRef Name="UserName" />
+    </Key>
+    <Property Name="dt" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="sum1" Type="Int32" />
+    <Property Name="sum2" Type="Int32" />
+    <Property Name="sum3" Type="Int32" />
+  </EntityType>
+</Schema>

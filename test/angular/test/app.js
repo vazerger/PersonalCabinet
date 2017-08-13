@@ -1,0 +1,1 @@
+﻿var app = angular.module('app', ['ui.bootstrap', 'angularUtils.directives.dirPagination', 'ngSanitize']);

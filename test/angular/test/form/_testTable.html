@@ -1,0 +1,85 @@
+﻿<br>
+
+    <table class="table table-hover table-striped tabASearch">
+        <thead>
+            <tr>
+                <th>
+                    <label ng-click="sort('ORDERID')">
+                        ORDERID
+                        <span class="glyphicon sort-icon" ng-show="sortKey=='ORDERID'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                    </label>
+                    <input type="text" name="ORDERID" required class="form-control input-sm" style="width: 70px;" ng-keyup="$event.keyCode == 13 ? SearchOrderid(orderid) : null" data-ng-model="orderid" ng-blur="SearchOrderid(orderid)" />
+                </th>
+                <th>
+                    <label ng-click="sort('PURCHASEAMT')">
+                        PURCHASEAMT
+                        <span class="glyphicon sort-icon" ng-show="sortKey=='PURCHASEAMT'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                    </label>
+                    <input type="text" name="PURCHASEAMT" required class="form-control input-sm" style="width: 80px;" ng-keyup="$event.keyCode == 13 ? SearchPurchaseamt(purchaseamt) : null" data-ng-model="purchaseamt" ng-blur="SearchPurchaseamt(purchaseamt)" />
+                </th>
+                <th>
+                        
+                        <label ng-click="sort('ACCOUNT')">
+                            ACCOUNT
+                            <span class="glyphicon sort-icon" ng-show="sortKey=='ACCOUNT'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                        </label>
+                        <div class="col-xs-12 invisible form-control input-sm"></div>
+
+                </th>
+                <th>
+                        <label ng-click="sort('RESULTDESC')">
+                            RESULTDESC
+                            <span class="glyphicon sort-icon" ng-show="sortKey=='RESULTDESC'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                        </label>
+
+                    <select id="result" ng-model="result" ng-options="result.name for result in results" class="form-control input-sm" ng-disabled="!results" ng-change="selectResult(result)">
+                        <option value="">- - - Все результаты - - -</option>
+                    </select>
+                            <i ng-show="loaderResults.loading" class="fa fa-spinner fa-spin loadalaen"></i>
+                </th>
+                <th>
+                    <label ng-click="sort('DATETIME')">
+                        DATETIME
+                        <span class="glyphicon sort-icon" ng-show="sortKey=='DATETIME'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                    </label>
+                    <div class="col-xs-12 invisible form-control input-sm"></div>
+                </th>
+                <th ng-click="sort('RRN')">
+                    <label>
+                        RRN
+                        <span class="glyphicon sort-icon" ng-show="sortKey=='RRN'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                    </label>
+                    <div class="col-xs-12 invisible form-control input-sm"></div>
+                </th>
+                <th ng-click="sort('DEALID')">
+                    <label>
+                        DEALID
+                        <span class="glyphicon sort-icon" ng-show="sortKey=='DEALID'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                    </label>
+                    <div class="col-xs-12 invisible form-control input-sm"></div>
+                </th>
+            </tr>
+        </thead>
+        <tbody ng-show="!loaderTable.loading">
+            <tr dir-paginate="tdata in tdatas|orderBy:sortKey:reverse|filter:search|itemsPerPage:10" current-page="pagination.current">
+                <td><strong class="datails" ng-click="viewDetail(tdata.ORDERID)">{{tdata.ORDERID}}</strong></td>
+                <td>{{tdata.PURCHASEAMT}}</td>
+                <td>{{tdata.ACCOUNT}}</td>
+                <td>{{tdata.RESULTDESC}}</td>
+                <td>{{tdata.DATETIME}}</td>
+                <td>{{tdata.RRN}}</td>
+                <td>{{tdata.DEALID}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+<i ng-show="loaderTable.loading" class="fa loaderfly"></i>
+
+    <dir-pagination-controls max-size="5"
+                             direction-links="true"
+                             boundary-links="true">
+    </dir-pagination-controls>
+
+
+
+

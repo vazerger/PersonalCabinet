@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище ModelContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="Transactions">
+      <EntityTypeMapping TypeName="Model.Transactions">
+        <MappingFragment StoreEntitySet="Transactions">
+          <ScalarProperty Name="USERID" ColumnName="USERID" />
+          <ScalarProperty Name="DEALID" ColumnName="DEALID" />
+          <ScalarProperty Name="RRN" ColumnName="RRN" />
+          <ScalarProperty Name="DATETIME" ColumnName="DATETIME" />
+          <ScalarProperty Name="RESULTDESC" ColumnName="RESULTDESC" />
+          <ScalarProperty Name="RESULT" ColumnName="RESULT" />
+          <ScalarProperty Name="ACCOUNT" ColumnName="ACCOUNT" />
+          <ScalarProperty Name="PURCHASEAMT" ColumnName="PURCHASEAMT" />
+          <ScalarProperty Name="ORDERID" ColumnName="ORDERID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="v_Transactions">
+      <EntityTypeMapping TypeName="Model.v_Transactions">
+        <MappingFragment StoreEntitySet="v_Transactions">
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="USERID" ColumnName="USERID" />
+          <ScalarProperty Name="RRN" ColumnName="RRN" />
+          <ScalarProperty Name="RESULTDESC" ColumnName="RESULTDESC" />
+          <ScalarProperty Name="RESULT" ColumnName="RESULT" />
+          <ScalarProperty Name="PURCHASEAMT" ColumnName="PURCHASEAMT" />
+          <ScalarProperty Name="ORDERID" ColumnName="ORDERID" />
+          <ScalarProperty Name="DEALID" ColumnName="DEALID" />
+          <ScalarProperty Name="DATETIME" ColumnName="DATETIME" />
+          <ScalarProperty Name="ACCOUNT" ColumnName="ACCOUNT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="v_GroupResult">
+      <EntityTypeMapping TypeName="Model.v_GroupResult">
+        <MappingFragment StoreEntitySet="v_GroupResult">
+          <ScalarProperty Name="sum3" ColumnName="sum3" />
+          <ScalarProperty Name="sum2" ColumnName="sum2" />
+          <ScalarProperty Name="sum1" ColumnName="sum1" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="dt" ColumnName="dt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

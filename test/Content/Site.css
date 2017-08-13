@@ -1,0 +1,125 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    /* max-width: 280px; */
+}
+
+span.view { color: blue; cursor: pointer; }
+.table tr .load { text-align: center; height: 100px; padding-top: 30px; font-size: 20px; color: gray; }
+
+.datapicker table tr, .datapicker table td, .datapicker table th {
+border: 0px;
+}
+
+.datapicker table td {
+padding: 0px;
+}
+
+#tabRus h2 {
+color: white;
+padding: 0px 0px 15px 0px;
+margin: 0px;
+}
+
+#tabRus .gdbutton
+{
+font-size: inherit;
+}
+
+#tabRus label {
+font-size: 12px;
+font-weight: normal;
+}
+
+#tabRus .form-group {
+margin-bottom: 10px;
+}
+
+.loadalaen {
+color: #fff;
+position: absolute;
+top: 30px;
+right: -3px;
+}
+
+#tabRus .msgAlean {
+color: aquamarine;
+}
+
+.tabASearch th, .tabASearch td {
+font-size: 90%;
+}
+
+.loaderfly {
+background: url('/Content/pic/ajax-loader.gif') no-repeat center top;
+width: 90%;
+height: 33px;
+margin: 0 auto;
+margin-top: 20px;
+}
+
+.modal-body {
+min-height: 250px;
+}
+
+.modal-dialog
+{
+min-height: 300px;
+}
+
+.winload {
+height: 1024px;                    
+position: relative;
+}
+
+.winload .fa-3 {
+font-size: 8em;
+position: absolute;
+top: 30%;
+left: 40%;
+color: #0d63a0;
+}
+city, date { color: #808080; font-size: 12px; }
+.searchline { padding-bottom: 10px; }
+.datails {
+color: #337ab7;
+cursor: pointer;
+}
+.hotelurl:hover { color: #337ab7; text-decoration: underline; }
+.closebtb { position: absolute; right: 10px; top: 10px; color: #0d63a0; font-size: 18px; cursor: pointer; }
+
+.dates { position: relative; }
+
+
+.dates input[type="text"] {
+    padding: 6px;
+    width: 45%;
+    border-radius: 4px;
+}
+
+.dates i {
+    position: absolute;
+    bottom: 10px;
+    right: 24px;
+    top: auto;
+    cursor: pointer;
+}

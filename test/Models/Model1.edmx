@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Transactions">
+          <Key>
+            <PropertyRef Name="ORDERID" />
+          </Key>
+          <Property Name="ORDERID" Type="int" Nullable="false" />
+          <Property Name="PURCHASEAMT" Type="int" />
+          <Property Name="ACCOUNT" Type="nvarchar(max)" />
+          <Property Name="RESULT" Type="int" />
+          <Property Name="RESULTDESC" Type="nvarchar(max)" />
+          <Property Name="DATETIME" Type="datetime" />
+          <Property Name="RRN" Type="nvarchar(max)" />
+          <Property Name="DEALID" Type="nvarchar(max)" />
+          <Property Name="USERID" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "aspnet-test-20161214094446.dbo.v_GroupResult" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="v_GroupResult">
+          <Key>
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Name="dt" Type="nvarchar" MaxLength="4000" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="sum1" Type="int" />
+          <Property Name="sum2" Type="int" />
+          <Property Name="sum3" Type="int" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "aspnet-test-20161214094446.dbo.v_Transactions" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="v_Transactions">
+          <Key>
+            <PropertyRef Name="ORDERID" />
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Name="ACCOUNT" Type="nvarchar(max)" />
+          <Property Name="DATETIME" Type="datetime" />
+          <Property Name="DEALID" Type="nvarchar(max)" />
+          <Property Name="ORDERID" Type="int" Nullable="false" />
+          <Property Name="PURCHASEAMT" Type="int" />
+          <Property Name="RESULT" Type="int" />
+          <Property Name="RESULTDESC" Type="nvarchar(max)" />
+          <Property Name="RRN" Type="nvarchar(max)" />
+          <Property Name="USERID" Type="nvarchar" MaxLength="128" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="Хранилище ModelContainer">
+          <EntitySet Name="Transactions" EntityType="Self.Transactions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="v_GroupResult" EntityType="Self.v_GroupResult" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_GroupResult].[dt] AS [dt], 
+    [v_GroupResult].[UserName] AS [UserName], 
+    [v_GroupResult].[sum1] AS [sum1], 
+    [v_GroupResult].[sum2] AS [sum2], 
+    [v_GroupResult].[sum3] AS [sum3]
+    FROM [dbo].[v_GroupResult] AS [v_GroupResult]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_Transactions" EntityType="Self.v_Transactions" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_Transactions].[ACCOUNT] AS [ACCOUNT], 
+    [v_Transactions].[DATETIME] AS [DATETIME], 
+    [v_Transactions].[DEALID] AS [DEALID], 
+    [v_Transactions].[ORDERID] AS [ORDERID], 
+    [v_Transactions].[PURCHASEAMT] AS [PURCHASEAMT], 
+    [v_Transactions].[RESULT] AS [RESULT], 
+    [v_Transactions].[RESULTDESC] AS [RESULTDESC], 
+    [v_Transactions].[RRN] AS [RRN], 
+    [v_Transactions].[USERID] AS [USERID], 
+    [v_Transactions].[UserName] AS [UserName]
+    FROM [dbo].[v_Transactions] AS [v_Transactions]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Transactions" EntityType="Model.Transactions" />
+          <EntitySet Name="v_Transactions" EntityType="Model.v_Transactions" />
+          <EntitySet Name="v_GroupResult" EntityType="Model.v_GroupResult" />
+        </EntityContainer>
+        <EntityType Name="Transactions">
+          <Key>
+            <PropertyRef Name="ORDERID" />
+          </Key>
+          <Property Name="ORDERID" Type="Int32" Nullable="false" />
+          <Property Name="PURCHASEAMT" Type="Int32" />
+          <Property Name="ACCOUNT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RESULT" Type="Int32" />
+          <Property Name="RESULTDESC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DATETIME" Type="DateTime" Precision="3" />
+          <Property Name="RRN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DEALID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="USERID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="v_Transactions">
+          <Key>
+            <PropertyRef Name="ORDERID" />
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Name="ACCOUNT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DATETIME" Type="DateTime" Precision="3" />
+          <Property Name="DEALID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ORDERID" Type="Int32" Nullable="false" />
+          <Property Name="PURCHASEAMT" Type="Int32" />
+          <Property Name="RESULT" Type="Int32" />
+          <Property Name="RESULTDESC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RRN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="USERID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="v_GroupResult">
+          <Key>
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Name="dt" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="sum1" Type="Int32" />
+          <Property Name="sum2" Type="Int32" />
+          <Property Name="sum3" Type="Int32" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище ModelContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="Transactions">
+            <EntityTypeMapping TypeName="Model.Transactions">
+              <MappingFragment StoreEntitySet="Transactions">
+                <ScalarProperty Name="USERID" ColumnName="USERID" />
+                <ScalarProperty Name="DEALID" ColumnName="DEALID" />
+                <ScalarProperty Name="RRN" ColumnName="RRN" />
+                <ScalarProperty Name="DATETIME" ColumnName="DATETIME" />
+                <ScalarProperty Name="RESULTDESC" ColumnName="RESULTDESC" />
+                <ScalarProperty Name="RESULT" ColumnName="RESULT" />
+                <ScalarProperty Name="ACCOUNT" ColumnName="ACCOUNT" />
+                <ScalarProperty Name="PURCHASEAMT" ColumnName="PURCHASEAMT" />
+                <ScalarProperty Name="ORDERID" ColumnName="ORDERID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_Transactions">
+            <EntityTypeMapping TypeName="Model.v_Transactions">
+              <MappingFragment StoreEntitySet="v_Transactions">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="USERID" ColumnName="USERID" />
+                <ScalarProperty Name="RRN" ColumnName="RRN" />
+                <ScalarProperty Name="RESULTDESC" ColumnName="RESULTDESC" />
+                <ScalarProperty Name="RESULT" ColumnName="RESULT" />
+                <ScalarProperty Name="PURCHASEAMT" ColumnName="PURCHASEAMT" />
+                <ScalarProperty Name="ORDERID" ColumnName="ORDERID" />
+                <ScalarProperty Name="DEALID" ColumnName="DEALID" />
+                <ScalarProperty Name="DATETIME" ColumnName="DATETIME" />
+                <ScalarProperty Name="ACCOUNT" ColumnName="ACCOUNT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_GroupResult">
+            <EntityTypeMapping TypeName="Model.v_GroupResult">
+              <MappingFragment StoreEntitySet="v_GroupResult">
+                <ScalarProperty Name="sum3" ColumnName="sum3" />
+                <ScalarProperty Name="sum2" ColumnName="sum2" />
+                <ScalarProperty Name="sum1" ColumnName="sum1" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="dt" ColumnName="dt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

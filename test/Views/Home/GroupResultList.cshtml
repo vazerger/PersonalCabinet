@@ -1,0 +1,30 @@
+﻿@model List<test.Models.ResultViewModel>
+@{
+    ViewBag.Title = "Сводная таблица";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<table class="table table-hover table-striped">
+    <thead>
+        <tr>
+            <th>Дата</th>
+            <th>Успешно завершено</th>
+            <th>Отменено</th>
+            <th>В обработке</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {            
+            <tr>
+                <td>@item.date.ToShortDateString()</td>
+                <td>@item.sum1</td>
+                <td>@item.sum2</td>
+                <td>@item.sum3</td>
+            </tr>
+        }
+
+    </tbody>
+</table>

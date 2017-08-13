@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+    <p>&nbsp;</p>
+    <div class="row">
+        <div class="list-group">
+            <a href="/Account/Login" class="list-group-item">Вход</a>
+            <a href="/Account/Register" class="list-group-item">Регистрация пользователя</a>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <a href="/Home/TransactionList" class="list-group-item">Список операций</a>
+                <a href="/Home/GroupResultList" class="list-group-item">Сводная таблица</a>
+            }
+        </div>
+    </div>
